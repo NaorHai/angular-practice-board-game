@@ -16,7 +16,7 @@ export class GameService {
     constructor(private boardService: BoardService) {
     }
 
-    init(level: number = 1, size: number = 10) : Game {
+    get(level: number = 1, size: number = 10) : Game {
         this.board = this.boardService.get(size, level);
         this.game = new GameModel(this.board);
 
