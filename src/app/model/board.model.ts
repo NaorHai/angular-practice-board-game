@@ -4,12 +4,15 @@ import {Position} from "../interface/position.interface";
 import {CellModel} from "./cell.model";
 
 export class BoardModel implements Board {
-    size: number;
-    public cells: Cell[][];
+    cells: Cell[][] = [];
 
     constructor(size: number) {
-        this.size = size;
-        this.cells = new CellModel[size][size];
+        for (let i: number = 0; i < size; i++) {
+            this.cells[i] = [];
+            for (let j: number = 0; j < size; j++) {
+                this.cells[i][j] = new CellModel();
+            }
+        }
     }
 
     isStepAllowed(p: Position): boolean {
@@ -23,7 +26,7 @@ export class BoardModel implements Board {
         return true;
     }
 
-    isOutBound(p: Position): boolean {
-        return p.x >= this.size || p.x >= this.size;
+    private isOutBound(p: Position): boolean {
+        return p.x >= this.cells.length || p.x >= this.cells.length;
     }
 }

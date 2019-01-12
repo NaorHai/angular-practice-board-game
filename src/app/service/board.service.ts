@@ -30,11 +30,16 @@ export class BoardService {
             row = this.utils.getRandom(0, this.size - 1);
             col = this.utils.getRandom(0, this.size - 1);
 
-            cell = this.board[row][col];
-            if (!cell.getBomb()) {
-                cell.setBomb(true);
-                i++;
+            cell = this.board.cells[row][col];
+            if (cell.getBomb() || this.isStart(row, col)) {
+                continue;
             }
+            cell.setBomb(true);
+            i++;
         }
+    }
+
+    isStart(x, y): boolean {
+        return x === 0 && y === 0;
     }
 }

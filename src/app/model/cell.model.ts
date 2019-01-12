@@ -4,7 +4,7 @@ export class CellModel implements Cell {
     isBomb: boolean = false;
     isVisited: boolean = false;
 
-    constructor(isBomb: boolean) {
+    constructor(isBomb: boolean = false) {
         this.isBomb = isBomb;
     }
 
