@@ -10,7 +10,6 @@ export class GameModel implements Game {
 
     constructor(board: Board) {
         this.board = board;
-        this.visit({x: 0, y: 0});
     }
 
     private doStep(nextPosition) {

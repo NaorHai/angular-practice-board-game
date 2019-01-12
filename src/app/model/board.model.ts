@@ -13,6 +13,7 @@ export class BoardModel implements Board {
                 this.cells[i][j] = new CellModel();
             }
         }
+        this.cells[0][0].isVisited = true;
     }
 
     isStepAllowed(p: Position): boolean {

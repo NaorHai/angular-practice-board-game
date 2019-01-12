@@ -24,7 +24,7 @@ import {Board} from "./interface/board.interface";
             <div *ngFor="let r of board.cells; index as i">
                 <div class="tile"
                      [class.visited]="board.cells[i][j].isVisited"
-                     [class.bomb]="board.cells[i][j].isVisited && board.cells[i][j].isBomb"
+                     [class.current]="i == game.position.x && j == game.position.y"
                      *ngFor="let c of board.cells; index as j">
                 </div>
             </div>
@@ -38,6 +38,9 @@ import {Board} from "./interface/board.interface";
     `,
     styles: [
             `
+            li {
+                list-style-type: none;
+            }
             .tile {
                 display: inline-block;
                 margin: 5px;
@@ -46,12 +49,11 @@ import {Board} from "./interface/board.interface";
                 background-color: cornflowerblue;
             }
 
-            .bomb {
-                background-color: indianred !important;
-            }
-
             .visited {
                 background-color: darkseagreen;
+            }
+            .current {
+                background-color: darkolivegreen;
             }
         `
 
@@ -62,7 +64,7 @@ export class AppComponent {
     game: Game;
     board: Board;
     size: number = 7;
-    level: number = 10;
+    level: number = 1;
 
     constructor(private gameService: GameService) {
         this.game = gameService.get(this.level, this.size);
