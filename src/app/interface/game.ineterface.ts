@@ -12,6 +12,7 @@ export interface Game {
     right(): Position;
 
     getScore(): number;
+    setScore(s: number): void;
     getBoard(): Board;
     getPosition(): Position;
 

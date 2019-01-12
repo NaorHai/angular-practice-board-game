@@ -11,44 +11,35 @@ export class GameModel implements Game {
         this.board = board;
     }
 
-    down(): Position {
-        let nextPosition = this.position;
-        nextPosition.y--;
-
+    private doStep(nextPosition) {
         if (this.board.isStepAllowed(nextPosition)) {
             this.position = nextPosition;
         }
         return this.position;
+    }
+
+    down(): Position {
+        let nextPosition = this.position;
+        nextPosition.y--;
+        return this.doStep(nextPosition);
     }
 
     left(): Position {
         let nextPosition = this.position;
         nextPosition.x--;
-
-        if (this.board.isStepAllowed(nextPosition)) {
-            this.position = nextPosition;
-        }
-        return this.position;
+        return this.doStep(nextPosition);
     }
 
     right(): Position {
         let nextPosition = this.position;
         nextPosition.x++;
-
-        if (this.board.isStepAllowed(nextPosition)) {
-            this.position = nextPosition;
-        }
-        return this.position;
+        return this.doStep(nextPosition);
     }
 
     up(): Position {
         let nextPosition = this.position;
         nextPosition.y++;
-
-        if (this.board.isStepAllowed(nextPosition)) {
-            this.position = nextPosition;
-        }
-        return this.position;
+        return this.doStep(nextPosition);
     }
 
     getBoard(): Board {
@@ -61,5 +52,9 @@ export class GameModel implements Game {
 
     getScore(): number {
         return this.score;
+    }
+
+    setScore(s: number): void {
+        this.score += s;
     }
 }
