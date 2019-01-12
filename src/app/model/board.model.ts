@@ -28,7 +28,7 @@ export class BoardModel implements Board {
     }
 
     private isOutBound(p: Position): boolean {
-        let tooBig = p.x >= this.cells.length || p.x >= this.cells.length;
+        let tooBig = p.x >= this.cells.length || p.y >= this.cells.length;
         let tooSmall = p.x < 0 || p.y < 0;
         return tooBig || tooSmall;
     }
