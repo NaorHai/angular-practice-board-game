@@ -6,11 +6,20 @@ import {Board} from "./interface/board.interface";
 @Component({
     selector: 'app-root',
     template: `
-
-        <div *ngFor="let r of board.cells; index as i">
-            <div class="tile"
-                 [class.bomb]="board.cells[i][j].isBomb"
-                 *ngFor="let c of board.cells; index as j">
+        <h1>{{title}}</h1>
+        <div>
+            <ul>
+                <li>{{'score: ' + game.score}}</li>
+                <li>{{'level: ' + level}}</li>
+                <li>{{'size: ' + size}}</li>
+            </ul>
+        </div>
+        <div>
+            <div *ngFor="let r of board.cells; index as i">
+                <div class="tile"
+                     [class.bomb]="board.cells[i][j].isBomb"
+                     *ngFor="let c of board.cells; index as j">
+                </div>
             </div>
         </div>
 
@@ -36,11 +45,11 @@ export class AppComponent {
     game: Game;
     board: Board;
     size: number = 10;
-    level: number = 3;
+    level: number = 15;
 
     constructor(private gameService: GameService) {
-        this.game = gameService.get(5);
-        this.board = this.game.getBoard();
+        this.game = gameService.get(this.level);
+        this.board = this.game.board;
     }
 }
 

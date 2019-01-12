@@ -10,10 +10,4 @@ export interface Game {
     down(): Position;
     left(): Position;
     right(): Position;
-
-    getScore(): number;
-    setScore(s: number): void;
-    getBoard(): Board;
-    getPosition(): Position;
-
 }

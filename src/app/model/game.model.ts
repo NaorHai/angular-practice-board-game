@@ -41,20 +41,4 @@ export class GameModel implements Game {
         nextPosition.y++;
         return this.doStep(nextPosition);
     }
-
-    getBoard(): Board {
-        return this.board;
-    }
-
-    getPosition(): Position {
-        return this.position
-    }
-
-    getScore(): number {
-        return this.score;
-    }
-
-    setScore(s: number): void {
-        this.score += s;
-    }
 }
