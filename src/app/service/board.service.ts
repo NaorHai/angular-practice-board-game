@@ -31,10 +31,10 @@ export class BoardService {
             col = this.utils.getRandom(0, this.size - 1);
 
             cell = this.board.cells[row][col];
-            if (cell.getBomb() || this.isStart(row, col)) {
+            if (cell.isBomb || this.isStart(row, col)) {
                 continue;
             }
-            cell.setBomb(true);
+            cell.isBomb = true;
             i++;
         }
     }

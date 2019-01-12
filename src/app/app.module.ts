@@ -12,7 +12,7 @@ import {BoardService} from "./service/board.service";
   imports: [
     BrowserModule
   ],
-  providers: [GameService, BoardService],
+  providers: [GameService, BoardService, Location],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

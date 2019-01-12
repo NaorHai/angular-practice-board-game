@@ -19,7 +19,7 @@ export class BoardModel implements Board {
         if (this.isOutBound(p)) {
             return false
         }
-        if (this.cells[p.x][p.y].getVisited()) {
+        if (this.cells[p.x][p.y].isVisited) {
             return false;
         }
 
@@ -27,6 +27,8 @@ export class BoardModel implements Board {
     }
 
     private isOutBound(p: Position): boolean {
-        return p.x >= this.cells.length || p.x >= this.cells.length;
+        let tooBig = p.x >= this.cells.length || p.x >= this.cells.length;
+        let tooSmall = p.x < 0 || p.y < 0;
+        return tooBig || tooSmall;
     }
 }
