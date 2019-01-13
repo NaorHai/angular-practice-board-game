@@ -48,6 +48,8 @@ import {Board} from "./interface/board.interface";
                 padding-top: 10px;
                 margin: 0 auto;
                 background: rgba(255,255,255,0.6);
+                border: 5px olivedrab solid;
+                border-radius: 5px;
             }
             .header{
                 padding-left: 10px;
