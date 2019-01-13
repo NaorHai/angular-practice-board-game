@@ -6,38 +6,61 @@ import {Board} from "./interface/board.interface";
 @Component({
     selector: 'app-root',
     template: `
-        <h1>{{title}}</h1>
         <div class="header">
-            <ul>
-                <li>{{'score: ' + game.score}}</li>
-                <li>{{'level: ' + level}}</li>
-                <li>{{'size: ' + size}}</li>
-            </ul>
+            <h1>{{title}}</h1>
+            <h3>{{subTitle}}</h3>
         </div>
-        <div class="ctrl">
-            <button (click)="game.up()">up</button>
-            <button (click)="game.down()">down</button>
-            <button (click)="game.left()">left</button>
-            <button (click)="game.right()">right</button>
-        </div>
-        <div class="board" *ngIf="!game.isOver">
-            <div *ngFor="let r of board.cells; index as i">
-                <div class="tile"
-                     [class.visited]="board.cells[i][j].isVisited"
-                     [class.current]="i == game.position.x && j == game.position.y"
-                     *ngFor="let c of board.cells; index as j">
+        <hr>
+        <div class="container">
+            <div class="inner-container">
+                <app-control-box class="align-left"></app-control-box>
+                <app-header class="align-left"></app-header>
+                <div class="clear"></div>
+
+                <div class="board" *ngIf="!game.isOver">
+                    <div *ngFor="let r of board.cells; index as i">
+                        <div class="tile"
+                             [class.visited]="board.cells[i][j].isVisited"
+                             [class.current]="i == game.position.x && j == game.position.y"
+                             *ngFor="let c of board.cells; index as j">
+                        </div>
+                    </div>
+                </div>
+                <div class="game-over"
+                     *ngIf="game.isOver">
+                    <iframe style="padding-right: 65px" src="https://giphy.com/embed/dkuZHIQsslFfy" width="480" height="384" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+                    <button type="button" class="btn btn-primary" (click)="reload">Restart</button>
                 </div>
             </div>
-        </div>
-        <div class="game-over"
-        *ngIf="game.isOver">
-            <h1>GAME OVER</h1>
-            <button (click)="reload">Restart</button>
-        </div>
-
+        </div> 
     `,
     styles: [
             `
+            .btn-primary{
+                margin-bottom: 15px;
+            }
+            .container{
+                width: 100%;
+            }
+            .inner-container{
+                width: 50%;
+                padding-left: 65px;
+                padding-top: 10px;
+                margin: 0 auto;
+                background: rgba(255,255,255,0.6);
+            }
+            .header{
+                padding-left: 10px;
+            }
+            h1{
+                font-family: 'Gochi Hand', cursive;
+            }
+            h3{
+                font-family: 'Caveat', cursive;
+            }
+            .align-left{
+                float: left;
+            }
             li {
                 list-style-type: none;
             }
@@ -60,11 +83,12 @@ import {Board} from "./interface/board.interface";
     ]
 })
 export class AppComponent {
-    title = 'angular-practice-board-game';
+    title = 'Board Game';
+    subTitle = "Practice - a game created by Naor Haimov & Nir Mekin";
     game: Game;
     board: Board;
     size: number = 7;
-    level: number = 1;
+    level: number = 5;
 
     constructor(private gameService: GameService) {
         this.game = gameService.get(this.level, this.size);
