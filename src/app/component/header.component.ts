@@ -1,6 +1,5 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {GameService} from "../service/game.service";
-import {Observable} from "rxjs";
+import {Component, OnInit} from '@angular/core';
+import {GameService} from "@nice/game-service";
 
 @Component({
   selector: 'app-header',
@@ -23,7 +22,7 @@ import {Observable} from "rxjs";
 export class HeaderComponent implements OnInit {
   game: any;
 
-  constructor(private service: GameService) {
+  constructor(public service: GameService) {
       this.game = this.service;
       console.log(this.game)
   }

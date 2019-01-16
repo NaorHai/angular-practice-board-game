@@ -17,6 +17,14 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "@nice/game-service": [
+        "dist/nice/game-service"
+      ],
+      "@nice/game-service/*": [
+        "dist/nice/game-service/*"
+      ]
+    }
   }
 }

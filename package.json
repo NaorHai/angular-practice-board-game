@@ -5,6 +5,8 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "build-nice": "ng build && npm run build-nice-game-service",
+    "build-nice-game-service": "ng build @nice/game-service",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
@@ -27,11 +29,15 @@
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.12.0",
+    "@angular-devkit/build-ng-packagr": "~0.12.0",
     "@angular/cli": "~7.2.1",
     "@angular/compiler-cli": "~7.2.0",
     "@angular/language-service": "~7.2.0",
     "@types/node": "~8.9.4",
+    "ng-packagr": "^4.2.0",
     "ts-node": "~7.0.0",
+    "tsickle": ">=0.34.0",
+    "tslib": "^1.9.0",
     "tslint": "~5.11.0",
     "typescript": "~3.2.2"
   }

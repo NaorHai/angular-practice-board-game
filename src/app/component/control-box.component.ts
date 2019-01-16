@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {GameService} from "../service/game.service";
-import {Game} from "../interface/game.ineterface";
+import {GameService} from "@nice/game-service";
 
 @Component({
   selector: 'app-control-box',
@@ -28,6 +27,7 @@ import {Game} from "../interface/game.ineterface";
       </div>
   `,
   styles: [`
+      
       .panel-ctrl{
           float: left;
           width: 65px;
@@ -54,7 +54,7 @@ import {Game} from "../interface/game.ineterface";
   `]
 })
 export class ControlBoxComponent implements OnInit {
-  game: Game;
+  game: any;
 
   constructor(private gameService: GameService) {
     this.game = gameService.game;

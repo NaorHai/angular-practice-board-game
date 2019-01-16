@@ -1,7 +1,5 @@
 import {Component} from '@angular/core';
-import {GameService} from "./service/game.service";
-import {Game} from "./interface/game.ineterface";
-import {Board} from "./interface/board.interface";
+import {GameService, Game, Board} from "@nice/game-service";
 
 @Component({
     selector: 'app-root',
@@ -16,29 +14,12 @@ import {Board} from "./interface/board.interface";
                 <app-control-box class="align-left"></app-control-box>
                 <app-header class="align-left"></app-header>
                 <div class="clear"></div>
-
-                <div class="board" *ngIf="!game.isOver">
-                    <div *ngFor="let r of board.cells; index as i">
-                        <div class="tile"
-                             [class.visited]="board.cells[i][j].isVisited"
-                             [class.current]="i == game.position.x && j == game.position.y"
-                             *ngFor="let c of board.cells; index as j">
-                        </div>
-                    </div>
-                </div>
-                <div class="game-over"
-                     *ngIf="game.isOver">
-                    <iframe style="padding-right: 65px" src="https://giphy.com/embed/dkuZHIQsslFfy" width="480" height="384" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
-                    <button type="button" class="btn btn-primary" (click)="reload">Restart</button>
-                </div>
+                <app-main></app-main>
             </div>
         </div> 
     `,
     styles: [
             `
-            .btn-primary{
-                margin-bottom: 15px;
-            }
             .container{
                 width: 100%;
             }
@@ -60,26 +41,7 @@ import {Board} from "./interface/board.interface";
             h3{
                 font-family: 'Caveat', cursive;
             }
-            .align-left{
-                float: left;
-            }
-            li {
-                list-style-type: none;
-            }
-            .tile {
-                display: inline-block;
-                margin: 5px;
-                width: 50px;
-                height: 50px;
-                background-color: cornflowerblue;
-            }
-
-            .visited {
-                background-color: darkseagreen;
-            }
-            .current {
-                background-color: darkolivegreen;
-            }
+           
         `
 
     ]
