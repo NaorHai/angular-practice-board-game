@@ -5,8 +5,9 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "build-nice": "ng build && npm run build-nice-game-service",
+    "build-nice": "ng build && npm run build-nice-game-service && ng build @nice/game-ui",
     "build-nice-game-service": "ng build @nice/game-service",
+    "build-nice-game-ui": "ng build @nice/game-ui",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"

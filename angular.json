@@ -144,6 +144,41 @@
           }
         }
       }
+    },
+    "@nice/game-ui": {
+      "root": "projects/nice/game-ui",
+      "sourceRoot": "projects/nice/game-ui/src",
+      "projectType": "library",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/nice/game-ui/tsconfig.lib.json",
+            "project": "projects/nice/game-ui/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/nice/game-ui/src/test.ts",
+            "tsConfig": "projects/nice/game-ui/tsconfig.spec.json",
+            "karmaConfig": "projects/nice/game-ui/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/nice/game-ui/tsconfig.lib.json",
+              "projects/nice/game-ui/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "angular-practice-board-game"

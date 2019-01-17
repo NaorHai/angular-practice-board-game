@@ -24,6 +24,12 @@
       ],
       "@nice/game-service/*": [
         "dist/nice/game-service/*"
+      ],
+      "@nice/game-ui": [
+        "dist/nice/game-ui"
+      ],
+      "@nice/game-ui/*": [
+        "dist/nice/game-ui/*"
       ]
     }
   }
