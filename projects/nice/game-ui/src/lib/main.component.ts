@@ -16,7 +16,7 @@ import {GameService} from "@nice/game-service";
       <div class="game-over"
            *ngIf="game.isOver">
           <iframe style="padding-right: 65px" src="https://giphy.com/embed/dkuZHIQsslFfy" width="480" height="384" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
-          <!--<button type="button" class="btn btn-primary" (click)="reload">Restart</button>-->
+          <button type="button" class="btn btn-primary" (click)="reload">Restart</button>
       </div>
   `,
   styles: [`
@@ -52,8 +52,8 @@ export class MainComponent {
     this.board = gameService.board;
   }
 
-    // get reload() {
-    //     return location.reload();
-    // }
+    get reload() {
+        return location.reload();
+    }
 
 }
